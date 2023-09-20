@@ -11,7 +11,7 @@ practices, including logging and testing.
 
 Code was developed using Python 3.8, and a requirements_py3.8.txt file is 
 provided to assist in setting up a working environment. These requirements can 
-be installed with ```python -m pip install -r requirements_py3.6.txt```
+be installed with ```python -m pip install -r requirements_py3.8.txt```
 
 The main functionality of the churn_notebook has been moved into the 
 CustomerChurn class in churn_library.py. This class can be used to train and 
