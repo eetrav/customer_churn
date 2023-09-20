@@ -1,0 +1,50 @@
+root - INFO - SUCCESS: File imported into dataframe.
+root - INFO - SUCCESS: Successfully created Churn column based on Attrition_Flag.
+root - INFO - SUCCESS: Plotted histogram of Churn data.
+root - INFO - SUCCESS: Plotted histogram of Customer_Age data.
+root - INFO - SUCCESS: Plotted counts of Marital_Status data.
+root - INFO - SUCCESS: Plotted distribution of Total_Trans_Ct data.
+root - INFO - SUCCESS: Plotted correlation of bank data.
+root - INFO - SUCCESS: Created churn encodings based on customer features.
+root - INFO - SUCCESS: Created independent/dependent train/test sets.
+root - INFO - Random Forest Train
+root - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      5957
+           1       1.00      1.00      1.00      1131
+
+    accuracy                           1.00      7088
+   macro avg       1.00      1.00      1.00      7088
+weighted avg       1.00      1.00      1.00      7088
+
+root - INFO - Random Forest Test
+root - INFO -               precision    recall  f1-score   support
+
+           0       0.96      0.99      0.98      2543
+           1       0.93      0.80      0.86       496
+
+    accuracy                           0.96      3039
+   macro avg       0.95      0.90      0.92      3039
+weighted avg       0.96      0.96      0.96      3039
+
+root - INFO - Logistic Regression Train
+root - INFO -               precision    recall  f1-score   support
+
+           0       0.91      0.96      0.94      5957
+           1       0.73      0.50      0.59      1131
+
+    accuracy                           0.89      7088
+   macro avg       0.82      0.73      0.76      7088
+weighted avg       0.88      0.89      0.88      7088
+
+root - INFO - Logistic Regression Test
+root - INFO -               precision    recall  f1-score   support
+
+           0       0.90      0.97      0.93      2543
+           1       0.72      0.44      0.54       496
+
+    accuracy                           0.88      3039
+   macro avg       0.81      0.70      0.74      3039
+weighted avg       0.87      0.88      0.87      3039
+
+root - INFO - SUCCESS: Created model inference reports and results.
