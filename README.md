@@ -11,7 +11,7 @@ practices, including logging and testing.
 
 Code was developed using Python 3.8, and a requirements_py3.8.txt file is 
 provided to assist in setting up a working environment. These requirements can 
-be installed with '''python -m pip install -r requirements_py3.6.txt'''
+be installed with ```python -m pip install -r requirements_py3.6.txt```
 
 The main functionality of the churn_notebook has been moved into the 
 CustomerChurn class in churn_library.py. This class can be used to train and 
@@ -25,7 +25,7 @@ example outputs, including logging, exploratory data analysis, resulting
 imagery, and exported trained models.
 
 The testing directory includes a testing script that can be run with the Pytest
-framework by running '''pytest''' from the main customer_churn directory. Running
-'''pytest''' will generate a separate logging script stored in ./tests/logs/
+framework by running ```pytest``` from the main customer_churn directory. Running
+```pytest``` will generate a separate logging script stored in ./tests/logs/
 which includes results on the tests pass/fail status. The testing directory 
 includes test_data which is used in some of the unit tests.
