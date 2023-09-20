@@ -1,0 +1,44 @@
+2023-09-20 14:35:35,427 INFO Checking that FileNotFoundError occurrs when
+                        instantiating CustomerChurn with non-existing file.
+2023-09-20 14:35:35,427 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:35,428 INFO Checking that AssertionError is raised for empty
+                        dataframe.
+2023-09-20 14:35:35,432 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:35,433 INFO Testing that 'Churn' column cannot be created without
+                        an Attrition_Flag in dataframe.
+2023-09-20 14:35:35,448 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:35,464 INFO Testing that 'Churn' column can be created when
+                        dataframe has valid Attrition_Flag column.
+2023-09-20 14:35:35,465 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:35,480 INFO Testing that Exploratory Data Analysis returns error
+                        when missing columns are requested.
+2023-09-20 14:35:35,643 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:35,659 INFO Testing that Exploratory Data Analysis produces
+                        correct images when valid dataframe is provided.
+2023-09-20 14:35:36,182 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:36,195 INFO Testing for raised AssertionError when missing
+                        column is requested for encoding.
+2023-09-20 14:35:36,195 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:36,209 INFO Testing that valud columns will be encoded.
+2023-09-20 14:35:36,256 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:36,270 INFO Testing that KeyError is raised when feature
+                        engineering is performed on invalid column.
+2023-09-20 14:35:36,495 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:36,732 INFO Testing that KeyError is raised when running
+                        assess_models method without valid train/test data.
+2023-09-20 14:35:36,760 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:36,996 INFO Testing that AttributeError is raised when running
+                        assess_models method without valid models.
+2023-09-20 14:35:36,999 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:37,706 INFO Testing that class reports are successfully
+                        generated after model training.
+2023-09-20 14:35:37,706 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:38,449 INFO Testing that ROC curve plots are successfully
+                        created after model training.
+2023-09-20 14:35:38,449 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:39,144 INFO Testing that Feature Importance plots are
+                        successfully created after model training.
+2023-09-20 14:35:39,144 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:39,454 INFO Testing that models are saved after training.
+2023-09-20 14:35:39,455 INFO =====SUCCESS: Test passed.=====
+2023-09-20 14:35:39,456 INFO 15 tests passed and 0 tests failed.
