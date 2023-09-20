@@ -56,6 +56,7 @@ class Plotters():
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
         plt.savefig(os.path.join(self.image_pth, col + '_hist.png'))
+        plt.close()
 
     def plot_counts(self, col: str = ''):
         """
@@ -75,6 +76,7 @@ class Plotters():
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
         plt.savefig(os.path.join(self.image_pth, col + '_counts.png'))
+        plt.close()
 
     def plot_dist(self, col: str = ''):
         """
@@ -100,6 +102,7 @@ class Plotters():
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
         plt.savefig(os.path.join(self.image_pth, col + '_dist.png'))
+        plt.close()
 
     def plot_corr(self):
         """
@@ -116,3 +119,4 @@ class Plotters():
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
         plt.savefig(os.path.join(self.image_pth, 'Correlation.png'))
+        plt.close()

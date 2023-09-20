@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+import shap
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -372,6 +373,7 @@ class CustomerChurn():
                     " ",
                     "_") +
                 "_class_report.png"))
+        plt.close()
 
     def _generate_classification_report(
             self,
@@ -426,11 +428,28 @@ class CustomerChurn():
                 self.image_pth,
                 'results',
                 "Model_Comparison_ROC.png"))
+        plt.close()
 
-    def _feature_importance_plot(self):
+    def _assess_random_forest(self):
         """
-        Function to create and store the feature importances in images folder.
+        Function to create and store the feature importances/explainer.
         """
+
+        plt.figure(figsize=(20, 16))
+        plt.title("Tree Explainer for Random Forest", fontsize=20)
+        explainer = shap.TreeExplainer(self.cv_rfc.best_estimator_)
+        shap_values = explainer.shap_values(self.data['x_test'])
+        shap.summary_plot(shap_values,
+                          self.data['x_test'],
+                          plot_type="bar",
+                          plot_size=(20, 16),
+                          show=False)
+        plt.xticks(fontsize=16)
+        plt.yticks(fontsize=16)
+        plt.legend(prop={'size': 18})
+        plt.savefig(os.path.join(
+            self.image_pth, 'results',
+            "Random_Forest_Tree_Explainer.png"))
 
         # Calculate feature importances and sort in descending order
         importances = self.cv_rfc.best_estimator_.feature_importances_
@@ -440,14 +459,20 @@ class CustomerChurn():
         names = [self.feature_cols.columns[i] for i in indices]
 
         plt.figure(figsize=(20, 5))
-        plt.title("Feature Importance")
-        plt.ylabel('Importance')
+        plt.title("Feature Importance", fontsize=20)
+        plt.ylabel('Importance', fontsize=18)
         plt.bar(range(self.feature_cols.shape[1]), importances[indices])
-        plt.xticks(range(self.feature_cols.shape[1]), names, rotation=90)
+        plt.xticks(range(self.feature_cols.shape[1]),
+                   names,
+                   rotation=90,
+                   fontsize=16)
+        plt.yticks(fontsize=16)
         plt.savefig(
             os.path.join(
                 self.image_pth, 'results',
                 "Random_Forest_Feature_Importances.png"))
+        
+        plt.close()
 
     def assess_models(self):
         """
@@ -498,7 +523,7 @@ class CustomerChurn():
         self._plot_roc_curves()
 
         # Plot feature importances in Random Forest model
-        self._feature_importance_plot()
+        self._assess_random_forest()
 
         logging.info("SUCCESS: Created model inference reports and results.")
 

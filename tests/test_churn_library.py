@@ -357,7 +357,7 @@ def test_model_roc_curves(churn_pretrained_models):
         "./tests/output/images/results/Model_Comparison_ROC.png")
 
 
-def test_feature_importance_plot(churn_pretrained_models):
+def test_assess_random_forest(churn_pretrained_models):
     """
     Test to check feature importance output of churn_trained_models fixture.
 
@@ -367,10 +367,11 @@ def test_feature_importance_plot(churn_pretrained_models):
                                                  pretrained models.
     """
     churn_pretrained_models.assess_models()
-    testing_logger.info("""Testing that Feature Importance plots are
-                        successfully created after model training.""")
-    assert os.path.exists(
-        "./tests/output/images/results/Random_Forest_Feature_Importances.png")
+    testing_logger.info("""Testing that analysis plots are successfully
+                         created after training Random Forest model.""")
+    assert all(fname in os.listdir(os.path.join("./tests/output/images/results"))
+               for fname in ["Random_Forest_Feature_Importances.png",
+                             "Random_Forest_Tree_Explainer.png"])
 
 
 def test_save_models(churn_pretrained_models):
