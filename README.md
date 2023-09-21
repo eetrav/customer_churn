@@ -16,8 +16,8 @@ be installed with ```conda install --file requirements_py3.8.txt```
 The main functionality of the churn_notebook has been moved into the 
 CustomerChurn class in churn_library.py. This class can be used to train and 
 test a Random Forest and Logistic Regression classifier, or to import
-pretrained models and assess their performance with new data. Running ```python
-churn_library.py``` creates the ./logs/churn_analysis.log file with added
+pretrained models and assess their performance with new data. Any calls to the 
+CustomerChurn class will create the ./logs/churn_analysis.log file with added
 insights.
 
 Two example scripts are provided in the examples directory, which also provides
@@ -25,7 +25,7 @@ example outputs, including logging, exploratory data analysis, resulting
 imagery, and exported trained models.
 
 The testing directory includes a testing script that can be run with the Pytest
-framework by running ```pytest``` from the main customer_churn directory. Running
-```pytest``` will generate a separate logging script stored in ./tests/logs/
-which includes results on the tests pass/fail status. The testing directory 
-includes test_data which is used in some of the unit tests.
+framework by running ```pytest``` from the main customer_churn directory. 
+Running ```pytest``` will generate a separate log stored in ./tests/logs/ which
+includes results on the tests pass/fail status. The testing directory includes 
+test_data which is used in some of the unit tests.
