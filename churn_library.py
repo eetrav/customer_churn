@@ -23,7 +23,7 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 
 from plotters import Plotters
 
-os.environ['QT_QPA_PLATFORM'] = 'offscreen'
+#os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 
 sns.set()
 
@@ -181,7 +181,7 @@ class CustomerChurn():
 
         for col in plot_dict.get('counts', []):
             try:
-                plotter.plot_counts('Marital_Status')
+                plotter.plot_counts(col)
                 logging.info("SUCCESS: Plotted counts of %s data.", col)
             except KeyError as err:
                 logging.warning(
@@ -190,7 +190,7 @@ class CustomerChurn():
 
         for col in plot_dict.get('dist', []):
             try:
-                plotter.plot_dist('Total_Trans_Ct')
+                plotter.plot_dist(col)
                 logging.info("SUCCESS: Plotted distribution of %s data.", col)
             except KeyError as err:
                 logging.warning(
