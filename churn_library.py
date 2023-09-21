@@ -227,11 +227,9 @@ class CustomerChurn():
         for category in category_lst:
             try:
                 assert category in self.bank_data.columns
-                cat_lst = []
                 cat_groups = self.bank_data.groupby(category).mean()['Churn']
-                for val in self.bank_data[category]:
-                    cat_lst.append(cat_groups.loc[val])
-                self.bank_data[category + '_' + response] = cat_lst
+                self.bank_data[category + '_' + \
+                    response] = self.bank_data[category].map(cat_groups)
             except AssertionError as err:
                 logging.error(
                     "ERROR: %s column not found in bank data.", category)
@@ -471,7 +469,7 @@ class CustomerChurn():
             os.path.join(
                 self.image_pth, 'results',
                 "Random_Forest_Feature_Importances.png"))
-        
+
         plt.close()
 
     def assess_models(self):
