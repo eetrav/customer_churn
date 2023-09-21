@@ -138,10 +138,11 @@ class CustomerChurn():
             self.bank_data['Churn'] = self.bank_data['Attrition_Flag'].apply(
                 lambda val: 0 if val == "Existing Customer" else 1)
             logging.info(
-                "SUCCESS: Successfully created Churn column based on Attrition_Flag.")
+                "INFO: Created Churn column based on Attrition_Flag.")
         except KeyError as err:
             logging.error(
-                "ERROR: Attrition_Flag must exist in bank data in order to create Churn column.")
+                """ERROR: Attrition_Flag must exist in bank data in order to
+                create Churn column.""")
             raise err
 
     def perform_eda(self, plot_dict: EDAdict):
@@ -550,7 +551,7 @@ class CustomerChurn():
         self._export_model(self.lrc, 'logistic_model')
 
         logging.info(
-            "SUCCESS: Saved Random Forest and Logistic Regression models in %s.",
+            "INFO: Saved Random Forest and Logistic Regression models in %s.",
             self.model_pth)
 
     def load_models(self, rfc_pth: str = "", lr_pth: str = ""):
@@ -566,6 +567,10 @@ class CustomerChurn():
 
         if rfc_pth:
             self.cv_rfc = joblib.load(rfc_pth)
+            logging.info(
+            "INFO: Imported Random Forest model from %s.", rfc_pth)
 
         if lr_pth:
             self.lrc = joblib.load(lr_pth)
+            logging.info(
+            "INFO: Imported Logistic Regression model from %s.", lr_pth)
